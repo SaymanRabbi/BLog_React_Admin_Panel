@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Topnavbar = () => {
     const [adminInfo,setAdmininfo] = useState(false);
-    console.log(adminInfo);
+    const [showNotification,setShowNotification] = useState(false);
     return (
         <header id="page-topbar" class="">
         <div class="layout-width">
@@ -204,11 +204,17 @@ const Topnavbar = () => {
                 </div>
 
                 <div class="dropdown topbar-head-dropdown ms-1 header-item" id="notificationDropdown">
-                    <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle" id="page-header-notifications-dropdown" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">
+                    <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle" 
+                     onClick={() => setShowNotification(!showNotification)}
+                    id="page-header-notifications-dropdown" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">
                         <i class="bx bx-bell fs-22"></i>
                         <span class="position-absolute topbar-badge fs-10 translate-middle badge rounded-pill bg-danger">3<span class="visually-hidden">unread messages</span></span>
                     </button>
-                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0" aria-labelledby="page-header-notifications-dropdown">
+                    {
+                        showNotification? <div class={`dropdown-menu dropdown-menu-lg dropdown-menu-end p-0 ${showNotification?'show':null}`} aria-labelledby="page-header-notifications-dropdown"
+                        style={{position: "absolute", inset: "0px 0px auto auto",margin: "0px",transform: "translate3d(0px, 58.4px, 0px)"}}
+                        data-popper-placement="bottom-end"
+                        >
 
                         <div class="dropdown-head bg-primary bg-pattern rounded-top">
                             <div class="p-3">
@@ -354,7 +360,7 @@ const Topnavbar = () => {
 
                             </div>
 
-                            <div class="tab-pane fade py-2 ps-2" id="messages-tab" role="tabpanel" aria-labelledby="messages-tab">
+                            <div class="tab-pane fade py-2 ps-2 active show" id="messages-tab" role="tabpanel" aria-labelledby="messages-tab">
                                 <div data-simplebar="init" style={{maxHeight: "300px"}} class="pe-2"><div class="simplebar-wrapper" style={{margin: "0px -8px 0px 0px"}}><div class="simplebar-height-auto-observer-wrapper"><div class="simplebar-height-auto-observer"></div></div><div class="simplebar-mask"><div class="simplebar-offset" style={{right: "0px",bottom: "0px"}}><div class="simplebar-content-wrapper" tabindex="0" role="region" aria-label="scrollable content" style={{height: "auto", overflow: "hidden"}}><div class="simplebar-content" style={{padding: "0px 8px 0px 0px"}}>
                                     <div class="text-reset notification-item d-block dropdown-item">
                                         <div class="d-flex">
@@ -464,7 +470,8 @@ const Topnavbar = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>:null
+                    }
                 </div>
 
                 <div class="dropdown ms-sm-3 header-item topbar-user"  >
