@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
 
+import './App.css';
+// import Bootstarp Css file
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Route,Routes
+ } from 'react-router-dom';
+// import MaindashBoard from './Pages/MaindashBoard';
+import Layout from './Components/Header/Layout';
+import Login from './Pages/Login';
+import Profile from './Pages/Profile';
+import ProfileSetting from './Pages/ProfileSetting';
+// import Navbar from './Components/Header/Navbar';
+// import Topnavbar from './Components/Header/Topnavbar';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    
+    <Routes>
+      <Route path='/' element={<Layout/>}/>
+      <Route path='/profile' element={<Profile/>}/>
+      <Route path='/profilesetting' element={<ProfileSetting/>}/>
+      {/* <Route path='/' element={<MaindashBoard/>}/> */}
+      <Route path="/login" element={<Login/>}/>
+    </Routes>
+    </>
   );
 }
 
