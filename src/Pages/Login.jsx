@@ -1,10 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import auth from '../firebase.init';
+import {signInWithEmailAndPassword} from 'firebase/auth';
 
 const Login = () => {
+    const [email,setEmail] = useState('');
+    const [password,setPassword] = useState('');
+    const navigate = useNavigate();
+    const [show, setShow] = useState(false);
+    // Login user with email and pass
+    const LoginEmailAndPass = (e) => {
+        e.preventDefault();
+        signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            // Signed in
+            const user = userCredential.user;
+            navigate('/')
+            // ...
+        }
+        ).catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+        });
+    }
+
     return (
         <div class="auth-page-wrapper auth-bg-cover py-5 d-flex justify-content-center align-items-center min-vh-100">
         <div class="bg-overlay"></div>
-        
         <div class="auth-page-content overflow-hidden pt-lg-5">
             <div class="container">
                 <div class="row">
@@ -16,9 +38,9 @@ const Login = () => {
                                         <div class="bg-overlay"></div>
                                         <div class="position-relative h-100 d-flex flex-column">
                                             <div class="mb-4">
-                                                <a href="index.html" class="d-block">
+                                                <Link to='/' class="d-block">
                                                     <img src="../../images/logo-light.png" alt="" height="18"/>
-                                                </a>
+                                                </Link>
                                             </div>
                                             <div class="mt-auto">
                                                 <div class="mb-3">
@@ -58,11 +80,11 @@ const Login = () => {
                                         </div>
 
                                         <div class="mt-4">
-                                            <form action="https://themesbrand.com/velzon/html/modern/index.html">
+                                            <form >
 
                                                 <div class="mb-3">
                                                     <label for="username" class="form-label">Username</label>
-                                                    <input type="text" class="form-control" id="username" placeholder="Enter username"/>
+                                                    <input type="text" class="form-control" id="username" placeholder="Enter username" onChange={(e)=>setEmail(e.target.value)}/>
                                                 </div>
 
                                                 <div class="mb-3">
@@ -71,39 +93,19 @@ const Login = () => {
                                                     </div>
                                                     <label class="form-label" for="password-input">Password</label>
                                                     <div class="position-relative auth-pass-inputgroup mb-3">
-                                                        <input type="password" class="form-control pe-5 password-input" placeholder="Enter password" id="password-input"/>
-                                                        <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
+                                                        <input type={!show?"password" :"text"} class="form-control pe-5 password-input" placeholder="Enter password" id="password-input" onChange={(e)=>setPassword(e.target.value)}/>
+                                                        <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon" type="button" id="password-addon"><i onClick={()=>setShow(show=>!show)
+                                                        } class={`align-middle ${!show? 'ri-eye-fill' :'ri-eye-close-fill'}`}></i></button>
                                                     </div>
                                                 </div>
-
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="auth-remember-check"/>
-                                                    <label class="form-check-label" for="auth-remember-check">Remember me</label>
-                                                </div>
-
                                                 <div class="mt-4">
-                                                    <button class="btn btn-success w-100" type="submit">Sign In</button>
+                                                    <button class="btn btn-success w-100" type="submit" onClick={(e)=>LoginEmailAndPass(e)}>Sign In</button>
                                                 </div>
 
-                                                <div class="mt-4 text-center">
-                                                    <div class="signin-other-title">
-                                                        <h5 class="fs-13 mb-4 title">Sign In with</h5>
-                                                    </div>
-
-                                                    <div>
-                                                        <button type="button" class="btn btn-primary btn-icon waves-effect waves-light"><i class="ri-facebook-fill fs-16"></i></button>
-                                                        <button type="button" class="btn btn-danger btn-icon waves-effect waves-light"><i class="ri-google-fill fs-16"></i></button>
-                                                        <button type="button" class="btn btn-dark btn-icon waves-effect waves-light"><i class="ri-github-fill fs-16"></i></button>
-                                                        <button type="button" class="btn btn-info btn-icon waves-effect waves-light"><i class="ri-twitter-fill fs-16"></i></button>
-                                                    </div>
-                                                </div>
-
-                                            </form>
+                                                                                            </form>
                                         </div>
 
-                                        <div class="mt-5 text-center">
-                                            <p class="mb-0">Don't have an account ? <a href="auth-signup-cover.html" class="fw-semibold text-primary text-decoration-underline"> Signup</a> </p>
-                                        </div>
+                                       
                                     </div>
                                 </div>
                               

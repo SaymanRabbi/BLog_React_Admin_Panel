@@ -41,12 +41,12 @@ const Topnavbar = () => {
               
                 <form class="app-search d-none d-md-block">
                     <div class="position-relative">
-                        <input type="text" class="form-control" placeholder="Search..." autocomplete="off" id="search-options" value=""/>
+                        <input type="text" class="form-control" placeholder="Search..."  id="search-options" />
                         <span class="mdi mdi-magnify search-widget-icon"></span>
                         <span class="mdi mdi-close-circle search-widget-icon search-widget-icon-close d-none" id="search-close-options"></span>
                     </div>
                     <div class="dropdown-menu dropdown-menu-lg" id="search-dropdown">
-                        <div data-simplebar="init" style={{maxHeight: "320px"}}><div class="simplebar-wrapper" style={{margin: "0px"}}><div class="simplebar-height-auto-observer-wrapper"><div class="simplebar-height-auto-observer"></div></div><div class="simplebar-mask"><div class="simplebar-offset" style={{right: "0px",bottom:" 0px"}}><div class="simplebar-content-wrapper" tabindex="0" role="region" aria-label="scrollable content" style={{height:" auto", overflow: "hidden"}}><div class="simplebar-content" style={{padding: "0px"}}>
+                        <div data-simplebar="init" style={{maxHeight: "320px"}}><div class="simplebar-wrapper" style={{margin: "0px"}}><div class="simplebar-height-auto-observer-wrapper"><div class="simplebar-height-auto-observer"></div></div><div class="simplebar-mask"><div class="simplebar-offset" style={{right: "0px",bottom:" 0px"}}><div class="simplebar-content-wrapper" tabindex="0" role="region" aria-label="scrollable content" style={{height:" auto", overflow: "scroll"}}><div class="simplebar-content" style={{padding: "0px"}}>
                            
                             <div class="dropdown-header">
                                 <h6 class="text-overflow text-muted mb-0 text-uppercase">Recent Searches</h6>
@@ -68,54 +68,10 @@ const Topnavbar = () => {
                             </a>
 
                             
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <i class="ri-lifebuoy-line align-middle fs-18 text-muted me-2"></i>
-                                <span>Help Center</span>
-                            </a>
+                          
 
                             
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <i class="ri-user-settings-line align-middle fs-18 text-muted me-2"></i>
-                                <span>My account settings</span>
-                            </a>
-
                             
-                            <div class="dropdown-header mt-2">
-                                <h6 class="text-overflow text-muted mb-2 text-uppercase">Members</h6>
-                            </div>
-
-                            <div class="notification-list">
-                             
-                                <a href="javascript:void(0);" class="dropdown-item notify-item py-2">
-                                    <div class="d-flex">
-                                        <img src="../../images/users/avatar-2.jpg" class="me-3 rounded-circle avatar-xs" alt="user-pic"/>
-                                        <div class="flex-1">
-                                            <h6 class="m-0">Angela Bernier</h6>
-                                            <span class="fs-11 mb-0 text-muted">Manager</span>
-                                        </div>
-                                    </div>
-                                </a>
-                                
-                                <a href="javascript:void(0);" class="dropdown-item notify-item py-2">
-                                    <div class="d-flex">
-                                        <img src="../../images/users/avatar-3.jpg" class="me-3 rounded-circle avatar-xs" alt="user-pic"/>
-                                        <div class="flex-1">
-                                            <h6 class="m-0">David Grasso</h6>
-                                            <span class="fs-11 mb-0 text-muted">Web Designer</span>
-                                        </div>
-                                    </div>
-                                </a>
-                               
-                                <a href="javascript:void(0);" class="dropdown-item notify-item py-2">
-                                    <div class="d-flex">
-                                        <img src="../../images/users/avatar-5.jpg" class="me-3 rounded-circle avatar-xs" alt="user-pic"/>
-                                        <div class="flex-1">
-                                            <h6 class="m-0">Mike Bunch</h6>
-                                            <span class="fs-11 mb-0 text-muted">React Developer</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
                         </div></div></div></div><div class="simplebar-placeholder" style={{width: "0px",height:" 0px"}}></div></div><div class="simplebar-track simplebar-horizontal" style={{visibility: "hidden"}}><div class="simplebar-scrollbar" style={{width: "0px", display: "none"}}></div></div><div class="simplebar-track simplebar-vertical" style={{visibility: "hidden"}}><div class="simplebar-scrollbar" style={{height: "0px",display: "none"}}></div></div></div>
 
                         <div class="text-center pt-3 pb-1">
@@ -128,10 +84,10 @@ const Topnavbar = () => {
             <div class="d-flex align-items-center">
 
                 <div class="dropdown d-md-none topbar-head-dropdown header-item">
-                    <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle" id="page-header-search-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle show" id="page-header-search-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                         <i class="bx bx-search fs-22"></i>
                     </button>
-                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0" aria-labelledby="page-header-search-dropdown">
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0 show" aria-labelledby="page-header-search-dropdown" data-popper-placement="bottom-end" style={{position: "absolute", inset: "0px 0px auto auto", margin: "0px",transform: "translate3d(0px, 58.4px, 0px)"}}>
                         <form class="p-3">
                             <div class="form-group m-0">
                                 <div class="input-group">
@@ -147,55 +103,6 @@ const Topnavbar = () => {
                     <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <img id="header-lang-img" src="../../images/flags/us.svg" alt="Header Language" height="20" class="rounded"/>
                     </button>
-                    <div class="dropdown-menu dropdown-menu-end">
-
-                        
-                        <a href="javascript:void(0);" class="dropdown-item notify-item language py-2" data-lang="en" title="English">
-                            <img src="../../images/flags/us.svg" alt="user-image" class="me-2 rounded" height="18"/>
-                            <span class="align-middle">English</span>
-                        </a>
-
-                     
-                        <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="sp" title="Spanish">
-                            <img src="../../images/flags/spain.svg" alt="user-image" class="me-2 rounded" height="18"/>
-                            <span class="align-middle">Española</span>
-                        </a>
-
-                       
-                        <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="gr" title="German">
-                            <img src="../../images/flags/germany.svg" alt="user-image" class="me-2 rounded" height="18"/> <span class="align-middle">Deutsche</span>
-                        </a>
-
-                      
-                        <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="it" title="Italian">
-                            <img src="../../images/flags/italy.svg" alt="user-image" class="me-2 rounded" height="18"/>
-                            <span class="align-middle">Italiana</span>
-                        </a>
-
-                      
-                        <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="ru" title="Russian">
-                            <img src="../../images/flags/russia.svg" alt="user-image" class="me-2 rounded" height="18"/>
-                            <span class="align-middle">русский</span>
-                        </a>
-
-                       
-                        <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="ch" title="Chinese">
-                            <img src="../../images/flags/china.svg" alt="user-image" class="me-2 rounded" height="18"/>
-                            <span class="align-middle">中国人</span>
-                        </a>
-
-                      
-                        <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="fr" title="French">
-                            <img src="../../images/flags/french.svg" alt="user-image" class="me-2 rounded" height="18"/>
-                            <span class="align-middle">français</span>
-                        </a>
-
-                      
-                        <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="ar" title="Arabic">
-                            <img src="../../images/flags/ae.svg" alt="user-image" class="me-2 rounded" height="18"/>
-                            <span class="align-middle">Arabic</span>
-                        </a>
-                    </div>
                 </div>
                 <div class="ms-1 header-item d-none d-sm-flex">
                     <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle light-dark-mode">
@@ -492,11 +399,11 @@ const Topnavbar = () => {
                         >
                        
                         <h6 class="dropdown-header">Welcome Anna!</h6>
-                        <a class="dropdown-item" href="pages-profile.html"><i class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <Link to={'/profile'} class="align-middle">Profile</Link></a>
+                        <Link to={'/profile'} class="dropdown-item" href="pages-profile.html"><i class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <span class="align-middle">Profile</span></Link>
                         
                         <Link class="dropdown-item" to={"/profilesetting"}><span class="badge bg-soft-success text-success mt-1 float-end">New</span><i class="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"></i> <span class="align-middle">Settings</span></Link>
-                       
-                        <a class="dropdown-item" href="auth-logout-basic.html"><i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> <span class="align-middle" data-key="t-logout">Logout</span></a>
+{/*                        
+                        <a class="dropdown-item" href="auth-logout-basic.html"><i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> <span class="align-middle" data-key="t-logout">Logout</span></a> */}
                     </div>
                         </>:null
                     }

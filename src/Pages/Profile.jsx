@@ -6,8 +6,7 @@ const Profile = () => {
  
     return (
         <>
-        <Topnavbar/>
-            <SidebarMaenu/>
+      
         <div class="main-content">
 
         <div class="page-content">

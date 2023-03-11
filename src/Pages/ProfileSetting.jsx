@@ -5,8 +5,7 @@ import Topnavbar from '../Components/Header/Topnavbar';
 const ProfileSetting = () => {
     return (
         <>
-        <Topnavbar/>
-        <SidebarMaenu/>
+     
         <div class="main-content">
 
         <div class="page-content">
