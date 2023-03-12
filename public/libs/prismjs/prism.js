@@ -882,7 +882,7 @@ var Prism = (function (_self) {
 			attributes += ' ' + name + '="' + (env.attributes[name] || '').replace(/"/g, '&quot;') + '"';
 		}
 
-		return '<' + env.tag + ' class="' + env.classes.join(' ') + '"' + attributes + '>' + env.content + '</' + env.tag + '>';
+		return '<' + env.tag + ' className="' + env.classes.join(' ') + '"' + attributes + '>' + env.content + '</' + env.tag + '>';
 	};
 
 	/**

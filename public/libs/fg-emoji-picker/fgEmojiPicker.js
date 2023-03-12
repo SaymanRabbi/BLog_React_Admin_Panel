@@ -109,16 +109,16 @@ const FgEmojiPicker = function (options) {
 
     this.html = {
         pickerBody: () => {
-            return `<div class="fg-emoji-picker">
+            return `<div className="fg-emoji-picker">
                 <div style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;">
                     <div>
-                        <div class="sk-chase">
-                            <div class="sk-chase-dot"></div>
-                            <div class="sk-chase-dot"></div>
-                            <div class="sk-chase-dot"></div>
-                            <div class="sk-chase-dot"></div>
-                            <div class="sk-chase-dot"></div>
-                            <div class="sk-chase-dot"></div>
+                        <div className="sk-chase">
+                            <div className="sk-chase-dot"></div>
+                            <div className="sk-chase-dot"></div>
+                            <div className="sk-chase-dot"></div>
+                            <div className="sk-chase-dot"></div>
+                            <div className="sk-chase-dot"></div>
+                            <div className="sk-chase-dot"></div>
                         </div>
                     </div>
                 </div>
@@ -569,9 +569,9 @@ const FgEmojiPicker = function (options) {
     this.emojiPicker = () => {
 
         let picker = `
-        <div class="fg-emoji-picker">
-            <div class="fg-emoji-picker-categories">%categories%
-                <div class="fg-emoji-picker-search">
+        <div className="fg-emoji-picker">
+            <div className="fg-emoji-picker-categories">%categories%
+                <div className="fg-emoji-picker-search">
                     <input placeholder="Search emoji" autofocus />
                     ${this.variable.categoryIcons.search}
                 </div>
@@ -579,10 +579,10 @@ const FgEmojiPicker = function (options) {
             <div>%pickerContainer%</div>
         </div>`;
 
-            const closeBtn      = this.variable.closeButton ? `<li><a class="fg-emoji-picker-close-button" href="#">${this.variable.categoryIcons.close}</a></li>` : '';
+            const closeBtn      = this.variable.closeButton ? `<li><a className="fg-emoji-picker-close-button" href="#">${this.variable.categoryIcons.close}</a></li>` : '';
             let categories      = `<ul>%categories%${closeBtn}</ul>`;
             let categoriesInner = ``;
-            let outerUl         = `<div class="fg-emoji-picker-all-categories">%outerUL%</div>`;
+            let outerUl         = `<div className="fg-emoji-picker-all-categories">%outerUL%</div>`;
             let innerLists      = ``;
 
             let fetchData = null;
@@ -599,16 +599,16 @@ const FgEmojiPicker = function (options) {
                             let keyToId = key.split(' ').join('-').split('&').join('').toLowerCase();
 
                             const categories = object[key];
-                            categoriesInner += `<li class="${index === 1 ? 'active' : ''}" id="${keyToId}" data-index="${keyToId}"><a href="#${keyToId}">${this.variable.categoryIcons[keyToId]}</a></li>`
+                            categoriesInner += `<li className="${index === 1 ? 'active' : ''}" id="${keyToId}" data-index="${keyToId}"><a href="#${keyToId}">${this.variable.categoryIcons[keyToId]}</a></li>`
 
                             innerLists += `
-                            <ul class="fg-emoji-picker-category ${index === 1 ? 'active' : ''}" id="${keyToId}" category-name="${key}">
-                                <div class="fg-emoji-picker-container-title">${key}</div>
-                                <div class="fg-emoji-picker-grid">`;
+                            <ul className="fg-emoji-picker-category ${index === 1 ? 'active' : ''}" id="${keyToId}" category-name="${key}">
+                                <div className="fg-emoji-picker-container-title">${key}</div>
+                                <div className="fg-emoji-picker-grid">`;
 
                                     // Loop through emoji items
                                     categories.forEach(item => {
-                                        innerLists += `<li data-name="${item.description.toLowerCase()}"><a class="fg-emoji-picker-item" title="${item.description}" data-name="${item.description.toLowerCase()}" data-code="${item.code}" href="${item.emoji}">${item.emoji}</a></li>`;
+                                        innerLists += `<li data-name="${item.description.toLowerCase()}"><a className="fg-emoji-picker-item" title="${item.description}" data-name="${item.description.toLowerCase()}" data-code="${item.code}" href="${item.emoji}">${item.emoji}</a></li>`;
                                     });
                                     innerLists += `
                                 </div>
@@ -640,16 +640,16 @@ const FgEmojiPicker = function (options) {
                                 let keyToId = key.split(' ').join('-').split('&').join('').toLowerCase();
 
                                 const categories = object[key];
-                                categoriesInner += `<li class="${index === 1 ? 'active' : ''}" id="${keyToId}" data-index="${keyToId}"><a href="#${keyToId}">${this.variable.categoryIcons[keyToId]}</a></li>`
+                                categoriesInner += `<li className="${index === 1 ? 'active' : ''}" id="${keyToId}" data-index="${keyToId}"><a href="#${keyToId}">${this.variable.categoryIcons[keyToId]}</a></li>`
 
                                 innerLists += `
-                                <ul class="fg-emoji-picker-category ${index === 1 ? 'active' : ''}" id="${keyToId}" category-name="${key}">
-                                    <div class="fg-emoji-picker-container-title">${key}</div>
-                                    <div class="fg-emoji-picker-grid">`;
+                                <ul className="fg-emoji-picker-category ${index === 1 ? 'active' : ''}" id="${keyToId}" category-name="${key}">
+                                    <div className="fg-emoji-picker-container-title">${key}</div>
+                                    <div className="fg-emoji-picker-grid">`;
 
                                         // Loop through emoji items
                                         categories.forEach(item => {
-                                            innerLists += `<li data-name="${item.description.toLowerCase()}"><a class="fg-emoji-picker-item" title="${item.description}" data-name="${item.description.toLowerCase()}" data-code="${item.code}" href="${item.emoji}">${item.emoji}</a></li>`;
+                                            innerLists += `<li data-name="${item.description.toLowerCase()}"><a className="fg-emoji-picker-item" title="${item.description}" data-name="${item.description.toLowerCase()}" data-code="${item.code}" href="${item.emoji}">${item.emoji}</a></li>`;
                                         })
 
                                         innerLists += `

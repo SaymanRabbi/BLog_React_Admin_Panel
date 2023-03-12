@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import EditorTiny from './EditorTiny';
 
 const MainContent = () => {
     const [item,setItme] = useState(["item1","item2","item3"]);
@@ -44,6 +45,7 @@ const MainContent = () => {
                 </div>
                 
                 <div class="row mt-5">
+                    <EditorTiny/>
                     <label htmlFor="">Filter By Tittle,Id,Category</label>
                     <div className='d-flex gap-2'>
                     <select name="" id="" className='custom-select custom-select-sm' style={{width:'33%'}}>

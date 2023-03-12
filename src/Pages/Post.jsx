@@ -1,28 +1,30 @@
 import React, { useState } from 'react';
 import { db } from '../firebase.init';
 import { collection, addDoc } from "firebase/firestore";
-import {ref as storageRef, uploadBytes} from 'firebase/storage'
-
+import { getStorage, ref } from "firebase/storage";
 const Post = () => { 
   const [file, setFile] = useState("");
   // console.log(file?.name);
 const submitPost =async (e) => {
-  console.log(file.name)
-    e.preventDefault();
+  e.preventDefault();
+  const storage = getStorage();
+  const storageRef = ref(storage);
+  console.log(storageRef);
+  const imageRef = storageRef.child(file?.name);
+  await imageRef.put(file);
+    const imageUrl = await imageRef.getDownloadURL();
     const tittle = e?.target.tittle.value;
     const dec = e?.target.dec.value
     const post = {
         tittle,
         dec,
+        imageUrl,
         // file
     }
     try {
+    
       const docRef = await addDoc(collection(db, "posts"), post);
-      const storage1 = storageRef(db, `${file?.name}`);  
-    console.log(storage1);
-    uploadBytes(storage1, file).then((snapshot) => {
-        console.log('Uploaded a blob or file!');
-    })
+     
       console.log("Document written with ID: ", docRef.id);
  } catch (error) {
       console.error("Error adding document: ", error);

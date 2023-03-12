@@ -5,21 +5,21 @@ const CateGoryTable = () => {
         <div>
         {/* <Topnavbar/>
         <SidebarMaenu/> */}
-        <div class="main-content">
-    <div class="page-content">
-    <div class="container-fluid">
+        <div className="main-content">
+    <div className="page-content">
+    <div className="container-fluid">
    <div className='d-flex'>
     <div style={{flex:'1'}}>
         Sort Your Category
     </div>
-   <select style={{flex:'1'}} class="form-select" aria-label="Default select example">
+   <select style={{flex:'1'}} className="form-select" aria-label="Default select example">
         <option selected>Fillter</option>
         <option value="1">Cat</option>
         <option value="2">Flower</option>
         <option value="3">Dog</option>
     </select>  
    </div>
-    <table class="table table-striped">
+    <table className="table table-striped">
 <thead>
 <tr>
   <th scope="col">Number Of Category</th>
